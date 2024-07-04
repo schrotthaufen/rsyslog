@@ -1184,11 +1184,11 @@ if test "x$enable_libgcrypt" = "xyes"; then
         AC_CHECK_LIB(
                [gcrypt],
                [gcry_cipher_open],
-               [LIBGCRYPT_CFLAGS="`pkg-config --cflags libgcrypt`"
-               LIBGCRYPT_LIBS="`pkg-config --libs libgcrypt`"
+               [LIBGCRYPT_CFLAGS="`pkg-config --cflags libgcrypt gpg-error`"
+               LIBGCRYPT_LIBS="`pkg-config --libs libgcrypt gpg-error`"
                ],
                [AC_MSG_FAILURE([libgcrypt is missing])],
-               [`pkg-config --libs --cflags libgcrypt`]
+               [`pkg-config --libs --cflags libgcrypt gpg-error`]
                )
 	AC_DEFINE([ENABLE_LIBGCRYPT], [1], [Indicator that LIBGCRYPT is present])
 fi
